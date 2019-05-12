@@ -17,4 +17,5 @@ class SinglePieceTakeTest {
         SinglePieceTake singlePieceTake = new SinglePieceTake(pawnW,pawnB,startPos,endPos);
         assertEquals("d4xe5", singlePieceTake.toString());
     }
+
 }

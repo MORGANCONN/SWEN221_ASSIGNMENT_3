@@ -5,7 +5,6 @@ import static org.junit.jupiter.api.Assertions.fail;
 
 import java.util.List;
 
-import org.testng.annotations.ITestAnnotation;
 
 import org.junit.jupiter.api.Test;
 import swen221.chessview.Board;

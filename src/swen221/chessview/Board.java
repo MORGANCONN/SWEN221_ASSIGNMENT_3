@@ -127,9 +127,9 @@ public class Board {
 
 	public boolean kingMoved(boolean isWhite) {
 		if(isWhite) {
-			return blackKingMoved;
-		} else {
 			return whiteKingMoved;
+		} else {
+			return blackKingMoved;
 		}
 	}
 

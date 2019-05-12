@@ -36,7 +36,7 @@ class SinglePieceMoveTest {
     public void pawnFailedRepeatedDoubleMove() {
         String input =
                 "e2-e4 a7-a5\n" +
-                        "e2-e4\n" +
+                        "e4-e6\n" +
                         "";
         String output =
                 "8|r|n|b|q|k|b|n|r|\n" +
@@ -70,5 +70,36 @@ class SinglePieceMoveTest {
                         "  a b c d e f g h";
 
         checkValid(input, output);
+    }
+    @Test
+    public void incorrectPawnMovementTooFarMovementOutOfBoard(){
+        String input =
+                "e2-e138\n";
+        String output =
+                "8|r|n|b|q|k|b|n|r|\n" +
+                        "7|p|p|p|p|p|p|p|p|\n" +
+                        "6|_|_|_|_|_|_|_|_|\n" +
+                        "5|_|_|_|_|_|_|_|_|\n" +
+                        "4|_|_|_|_|_|_|_|_|\n" +
+                        "3|_|_|_|_|_|_|_|_|\n" +
+                        "2|P|P|P|P|P|P|P|P|\n" +
+                        "1|R|N|B|Q|K|B|N|R|\n" +
+                        "  a b c d e f g h";
+    }
+
+    @Test
+    public void incorrectPawnMovementTooFarMovementInsideBoard(){
+        String input =
+                "e2-e6\n";
+        String output =
+                "8|r|n|b|q|k|b|n|r|\n" +
+                        "7|p|p|p|p|p|p|p|p|\n" +
+                        "6|_|_|_|_|_|_|_|_|\n" +
+                        "5|_|_|_|_|_|_|_|_|\n" +
+                        "4|_|_|_|_|_|_|_|_|\n" +
+                        "3|_|_|_|_|_|_|_|_|\n" +
+                        "2|P|P|P|P|P|P|P|P|\n" +
+                        "1|R|N|B|Q|K|B|N|R|\n" +
+                        "  a b c d e f g h";
     }
 }
