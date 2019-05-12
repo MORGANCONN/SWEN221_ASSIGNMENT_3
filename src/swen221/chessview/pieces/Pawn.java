@@ -13,6 +13,7 @@ public class Pawn extends PieceImpl implements Piece {
 	public boolean isValidMove(Position oldPosition, Position newPosition,
 			Piece isTaken, Board board) {
 		int dir = isWhite ? 1 : -1;
+		int originalRow = isWhite ? 2 : 7;
 		int oldRow = oldPosition.row();
 		int oldCol = oldPosition.column();
 		int newRow = newPosition.row();
@@ -30,9 +31,8 @@ public class Pawn extends PieceImpl implements Piece {
 					&& (oldRow + dir) == newRow;
 		} else if ((oldRow + dir) == newRow && oldCol == newCol) {
 			return this.equals(p) && t == null;
-		} else if ((oldRow + dir + dir) == newRow && oldCol == newCol) {
-			return ((dir == 1 && oldRow == 2) || (dir == -1 && oldRow == 7))
-					&& board.pieceAt(new Position(oldRow + dir, oldCol)) == null
+		} else if ((oldRow==originalRow) && (oldRow + dir + dir) == newRow && oldCol == newCol) {
+			return board.pieceAt(new Position(oldRow + dir, oldCol)) == null
 					&& t == null && this.equals(p);
 		}
 		return false;

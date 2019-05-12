@@ -16,6 +16,7 @@ public class PawnPromotion implements MultiPieceMove {
 
 	public PawnPromotion(SinglePieceMove move, Piece promotion) {
 		this.promotion = promotion;
+		this.move = move;
 	}
 
 	@Override
@@ -34,11 +35,11 @@ public class PawnPromotion implements MultiPieceMove {
 	public void apply(Board board) {
 		Piece piece = board.pieceAt(move.oldPosition());
 		move.apply(board);
-		board.setPieceAt(move.newPosition(), piece);
+		board.setPieceAt(move.newPosition(), promotion);
 	}
 
 	@Override
 	public String toString() {
-		return super.toString() + "=" + SinglePieceMove.pieceChar(promotion);
+		return move.toString() + "=" + SinglePieceMove.pieceChar(promotion);
 	}
 }

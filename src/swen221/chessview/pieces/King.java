@@ -12,11 +12,13 @@ public class King extends PieceImpl implements Piece {
 			Piece isTaken, Board board) {
 		int diffCol = Math.max(oldPosition.column(), newPosition.column())
 				- Math.min(oldPosition.column(), newPosition.column());
+		int diffRow = Math.max(oldPosition.row(), newPosition.row())
+				- Math.min(oldPosition.row(), newPosition.row());
 		Piece p = board.pieceAt(oldPosition);
 		Piece t = board.pieceAt(newPosition);
 		return this.equals(p)
 				&& (t == isTaken || (isTaken != null && isTaken.equals(t)))
-				&& diffCol == 1;
+				&&(diffCol>=-1&&diffCol<=1)&&(diffRow>=-1&&diffRow<=1);
 	}
 
 	@Override

@@ -17,6 +17,10 @@ public class EnPassant extends SinglePieceTake {
 	@Override
 	public boolean isValid(Board board) {
 		// Finally, check piece being taken did the double step
+
+		if(checkValidPositions()&&checkValidPieceTaken(board)){
+			return true;
+		}
 		return false;
 	}
 
@@ -40,7 +44,7 @@ public class EnPassant extends SinglePieceTake {
 		} else {
 			Position takePosition = getTakenPosition();
 			Piece takenPiece = board.pieceAt(takePosition);
-			if (takenPiece == null || takenPiece.isWhite() == piece.isWhite() || !(takenPiece instanceof Pawn)) {
+			if (takenPiece == null || takenPiece.isWhite() == piece.isWhite() || !(takenPiece instanceof Pawn) || !((Pawn) takenPiece).wasDoubleStep()) {
 				// we're not taking a valid piece
 				return false;
 			}
