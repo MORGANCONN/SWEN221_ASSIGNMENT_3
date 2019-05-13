@@ -19,7 +19,7 @@ class CheckmateTests {
                         "b3-b4 Rf3xf2\n" +
                         "b4-b5 Rf2-f5\n" +
                         "Bf1-h3 Rf5-c5\n" +
-                        "O-O-O+\n" +
+                        "O-O+\n" +
                         "";
         String output =
                         "8|_|n|b|q|_|k|n|r|\n" +

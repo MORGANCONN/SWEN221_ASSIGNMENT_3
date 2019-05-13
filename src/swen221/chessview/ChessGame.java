@@ -112,13 +112,13 @@ public class ChessGame {
 				break;
 			case 'O':
 				if(str.equals("O-O")) {
-					return new Castling(isWhite,false);
-				} else if(str.equals("O-O-O")) {
 					return new Castling(isWhite,true);
+				} else if(str.equals("O-O-O")) {
+					return new Castling(isWhite,false);
 				} else if(str.equals("O-O+")) {
-					return new Check(new Castling(isWhite,false));
-				} else if(str.equals("O-O-O+")) {
 					return new Check(new Castling(isWhite,true));
+				} else if(str.equals("O-O-O+")) {
+					return new Check(new Castling(isWhite,false));
 				} else {
 					throw new IllegalArgumentException("invalid sheet");
 				}
